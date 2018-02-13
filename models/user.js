@@ -20,6 +20,10 @@ var userSchema = new mongoose.Schema({
         required: true,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email account']
     },
+    adresa: {
+        type: String,
+        required: true
+    },
     dateOfBirth: {
         type: Date, 
         default: Date.now},
