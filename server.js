@@ -17,6 +17,12 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+//==========timelog======
+app.use(function timeLog(req, res, next) {
+    var d = new Date();
+    console.log('Time: ', d.toUTCString())
+    next()
+})
 //
 // ===========================================PACIENTI=======================================
 //
@@ -41,7 +47,7 @@ app.post("/users", function (req, res) {
     User.create(req.body, function (err, post) {
         if (err) { console.log(err) }
         else {
-            res.redirect('http://localhost:3000/users')} ;
+            res.json(post)} ;
     });
 });
 
@@ -50,7 +56,7 @@ app.post("/users", function (req, res) {
 app.put("/users/:id", function (req, res) {
     User.findByIdAndUpdate(req.params.id, req.body, function (err, data) {
         if (err) {console.log(err) }
-        else { res.redirect('http://localhost:3000/users'); }        
+        else { res.json(data); }        
     });
 });
 
@@ -116,7 +122,7 @@ app.post("/medical", function (req, res) {
                             userFound.medicalHistory.push(istoric);
                             userFound.save();}
             })
-            res.redirect('http://localhost:3000/medical');
+            res.json(istoric);
         };
     });
 });
@@ -126,7 +132,7 @@ app.post("/medical", function (req, res) {
 app.put("/medical/:id", function (req, res) {
     MedicalHistory.findByIdAndUpdate(req.params.id, req.body, function (err, data) {
         if (err) { console.log(err) }
-        else { res.redirect('http://localhost:3000/medical'); }
+        else { res.json(data); }
     });
 });
 
@@ -160,7 +166,7 @@ app.delete("/medical/:id", function (req, res) {
         if (err) {console.log(err)}
         else { 
             console.log('you deleted a medical history');
-            res.redirect('http://localhost:3000/medical')}   
+            }   
     });  
 });
 
