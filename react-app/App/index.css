@@ -1,0 +1,49 @@
+td {
+    font-size: 14px;
+}
+.clickable {
+    padding-top: 5px;
+    cursor: pointer;
+    color: blue;
+}
+.card-header {
+    border-top: 1px solid rgba(0,0,0,.125);
+    width: 100%;
+}
+.btn {
+    margin: 1px;
+}
+.navigt {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 7px;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    background-color: #e3f2fd;
+  }
+  
+.navigt li {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  
+.active {
+    font-weight: bold;
+  }
+a {
+    text-decoration: none;
+    color: #000000;
+}
+.istoricM {
+    color: red;
+}
+.form-group { 
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.tooltipHelper {
+    color: blue;
+    font-size: 12px;
+    list-style-type: none;
+     
+}
